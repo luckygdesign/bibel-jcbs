@@ -7,7 +7,7 @@ public_folder: img
 collections:
   - name: "jahr1"
     label: "Jahr 1"
-    identifier_field: "Schulwoche"
+    identifier_field: "woche"
     description: "Inhalte für Jahr 1"
     folder: "content/1"
     create: true
