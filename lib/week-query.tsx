@@ -13,6 +13,7 @@ export type IWeek = {
   heading?: string;
   week: string;
   year: string;
+  body?: string;
 };
 
 export async function getWeekContent(
@@ -24,8 +25,8 @@ export async function getWeekContent(
     "utf8"
   );
 
-  const { attributes } = frontMatter<IWeekInput>(content);
-  return { year, week, ...attributes };
+  const { attributes, body } = frontMatter<IWeekInput>(content);
+  return { year, week, ...attributes, body };
 }
 
 export async function getAllWeeks(year: string): Promise<IWeek[]> {
