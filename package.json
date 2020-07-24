@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "export": "next build && next export"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.2.0",
@@ -21,12 +22,13 @@
     "postcss-preset-env": "^6.7.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-player": "^2.6.0",
     "tailwindcss": "^1.4.6"
   },
   "devDependencies": {
+    "@types/marked": "^0.7.4",
     "@types/node": "^13.13.5",
     "@types/react": "^16.9.35",
-    "typescript": "^3.8.3",
-    "@types/marked": "^0.7.4"
+    "typescript": "^3.8.3"
   }
 }
