@@ -27,7 +27,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   // We'll pre-render only these paths at build time.
   // { fallback: false } means other routes should 404.
-  return { paths, fallback: true };
+  return { paths, fallback: false };
 };
 
 function WeekPage(pageProps: { page: IWeek }) {
