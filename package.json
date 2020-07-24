@@ -8,8 +8,16 @@
     "start": "next start"
   },
   "dependencies": {
+    "front-matter": "^4.0.2",
+    "fs": "^0.0.1-security",
     "next": "9.4.4",
+    "path": "^0.12.7",
     "react": "16.13.1",
     "react-dom": "16.13.1"
+  },
+  "devDependencies": {
+    "@types/node": "^13.13.5",
+    "@types/react": "^16.9.35",
+    "typescript": "^3.8.3"
   }
 }
