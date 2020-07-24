@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content Manager</title>
+  </head>
+  <body>
+    <!-- Include the script that builds the page and powers Netlify CMS -->
+    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+    <script type="text/javascript">
+      CMS.registerPreviewStyle("/admin/template.css");
+      CMS.registerPreviewTemplate(
+        "pages",
+        createClass({
+          render: function () {
+            var entry = this.props.entry;
+            return h(
+              "div",
+              {},
+              h(
+                "h1",
+                {
+                  className:
+                    "text-2xl leading-10 font-semibold text-center text-base uppercase text-gray-600 tracking-wider mb-16",
+                },
+                entry.getIn(["data", "title"])
+              ),
+              h("div", { className: "parsemd" }, this.props.widgetFor("body"))
+            );
+          },
+        })
+      );
+    </script>
+  </body>
+</html>
