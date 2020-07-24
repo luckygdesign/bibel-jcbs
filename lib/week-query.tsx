@@ -3,10 +3,16 @@ import { promises as fs } from "fs";
 import path from "path";
 
 const BASE_DIR: string = "content";
+type IWeekInput = {
+  link?: string;
+  heading?: string;
+};
 
 export type IWeek = {
   link?: string;
   heading?: string;
+  week: string;
+  year: string;
 };
 
 export async function getWeekContent(
@@ -17,7 +23,9 @@ export async function getWeekContent(
     path.resolve(process.cwd(), `${BASE_DIR}/${year}/${week}.md`),
     "utf8"
   );
-  return frontMatter<IWeek>(content).attributes;
+
+  const { attributes } = frontMatter<IWeekInput>(content);
+  return { year, week, ...attributes };
 }
 
 export async function getAllWeeks(year: string): Promise<IWeek[]> {
