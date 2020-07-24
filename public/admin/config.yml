@@ -2,6 +2,8 @@ backend:
   name: github
   repo: luckygdesign/bibel-jcbs
   branch: master
+media_folder: public/img
+public_folder: img
 collections:
   - name: "jahr1"
     label: "Jahr 1"
@@ -11,7 +13,6 @@ collections:
     create: true
     fields:
       - { label: "Schulwoche", name: "woche", widget: "string" }
-      - { label: "Heading", name: "heading", widget: "string" }
       - { label: "Video Link", name: "link", widget: "string" }
       - { label: "Challenge", name: "challenge", widget: "markdown" }
       - { label: "Beschreibung", name: "body", widget: "markdown" }
