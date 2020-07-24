@@ -13,8 +13,13 @@ collections:
     create: true
     fields:
       - { label: "Schulwoche", name: "woche", widget: "string" }
-      - { label: "Bild Link", name: "link", widget: "string", required: false }
-      - { label: "Video Link", name: "link", widget: "string", required: false }
+      - { label: "Bild Link", name: "image", widget: "string", required: false }
+      - {
+          label: "Video Link",
+          name: "video",
+          widget: "string",
+          required: false,
+        }
       - {
           label: "Challenge - Überschrift",
           name: "challengeheading",
