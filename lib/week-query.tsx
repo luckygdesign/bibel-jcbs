@@ -4,16 +4,27 @@ import path from "path";
 
 const BASE_DIR: string = "content";
 type IWeekInput = {
-  link?: string;
-  heading?: string;
+  video?: string;
+  image?: string;
+  inputheading?: string;
+  woche?: string;
+  versetext?: string;
+  versestelle?: string;
+  challengeheading?: string;
+  challengebody?: string;
 };
 
 export type IWeek = {
-  link?: string;
-  heading?: string;
-  week: string;
+  video?: string;
+  image?: string;
+  inputheading?: string;
+  woche?: string;
+  versetext?: string;
+  versestelle?: string;
+  challengeheading?: string;
+  challengebody?: string;
   year: string;
-  body?: string;
+  body: string;
 };
 
 export async function getWeekContent(
@@ -26,7 +37,7 @@ export async function getWeekContent(
   );
 
   const { attributes, body } = frontMatter<IWeekInput>(content);
-  return { year, week, ...attributes, body };
+  return { year, ...attributes, body };
 }
 
 export async function getAllWeeks(year: string): Promise<IWeek[]> {
@@ -36,7 +47,7 @@ export async function getAllWeeks(year: string): Promise<IWeek[]> {
 
   return await Promise.all(
     weekPaths.map(async (path) => {
-      return await getWeekContent(year, path.replace(/^.*[\\\/]/, ""));
+      return await getWeekContent(year, path.replace(/\.md$/, ""));
     })
   );
 }

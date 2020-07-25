@@ -1,9 +1,0 @@
----
-woche: "3"
-link: https://www.youtube.com/watch?v=QIimRzW87fQ
-challenge: |-
-  * Was sagt der Vers über den Menschen?
-  * Glaubst du an diese Aussagen? Wenn ja warum? Wenn nein, was hält dich ab?
----
-Gott schuf den Menschen nach seinem Bild - als Mann und Frau! 
-Er schuf sie in allen möglichen Formen und Größen und Farben. Selbst in deiner Familie sieht keiner genauso aus wie der andere. Egal, wie unterschiedlich wir sind: Wir gehören alle zu Gottes großer Familie. Dass Gott den Menschen nach seinem Ebenbild geschaffen hat, zeigt die besondere Beziehung zwischen ihm und uns Menschen. So wie Gott eine Trinität ist (Vater, Sohn und Heiliger Geist), so besteht der Mensch auch aus einem Geist, Seele und einem Körper. So wie Gott, hat auch der Mensch einen Verstand, eine moralische Natur und die Fähigkeit zur Kommunikation und Äußerung von Gefühlen. Der Mensch ist Gott ähnlich durch sein Bewusstsein und die Fähigkeit zur Kommunikation. Gott sieht im Menschen ein Gegenüber. Diese Beziehung wird auch in der Schöpfung von Mann und Frau deutlich. Gott schuf Mann und Frau, also zwei Geschlechter. Beide sind Gottes Ebenbild, aber auf unterschiedliche Weise. Adam, der erste Mensch war einsam. Gott schuf deswegen mit der Frau ein Gegenüber. Daran wird deutlich, wie wichtig Gott die Gemeinschaft, die Liebe untereinander ist. 
