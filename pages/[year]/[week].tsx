@@ -2,6 +2,7 @@ import { GetStaticProps, GetStaticPaths } from "next";
 import { getWeekContent, IWeek, getAllWeeks } from "../../lib/week-query";
 import { ParsedMD } from "lib/parseMd";
 import ReactPlayer from "react-player";
+import { Layout } from "components/Layout";
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
@@ -33,11 +34,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 function WeekPage(pageProps: { page: IWeek }) {
   const { page } = pageProps;
   return (
-    <div className="relative py-16 bg-white overflow-hidden">
-      <div className="relative px-4 sm:px-6 lg:px-8">
+    <Layout>
+      <Layout.Container>
         <div className="text-lg max-w-prose mx-auto mb-6">
-          <p className="text-base text-center leading-6 text-indigo-600 font-semibold tracking-wide uppercase">
-            Schulwoche {page?.week}
+          <p className="text-base text-center leading-6 text-accent-600 font-semibold tracking-wide uppercase">
+            Jahr {page?.year} | Schulwoche {page?.week}
           </p>
           <h1 className="mt-2 mb-8 text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
             {page?.heading}
@@ -45,30 +46,55 @@ function WeekPage(pageProps: { page: IWeek }) {
         </div>
         <ParsedMD
           md={page?.body || ""}
-          className="rose prose-lg text-gray-500 mx-auto"
+          className="prose prose-lg text-gray-500 mx-auto text-center"
         />
-        {page?.link && (
-          <div>
-            <h3 className="mt-2 mb-8 text-xl text-center leading-8 font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
-              Challenge
-            </h3>
-            <p>
-              Schau dir das Video an und denke darüber nach, wozu Gott alles
-              Leben auf dieser Erde geschaffen hat und was er mit dir persönlich
-              vorhat!
-            </p>
-            <div style={{ paddingTop: "56.25%", position: "relative" }}>
+      </Layout.Container>
+      <div className="bg-gray-200">
+        <Layout.Container>
+          <h3 className="mt-2 mb-8 text-xl text-center leading-8 font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
+            Challenge
+          </h3>
+          <p className="prose prose-lg text-gray-500 mx-auto text-center">
+            Schau dir das Video an und denke darüber nach, wozu Gott alles Leben
+            auf dieser Erde geschaffen hat und was er mit dir persönlich vorhat!
+          </p>
+          {page?.link && (
+            <div
+              className="mt-9"
+              style={{ paddingTop: "56.25%", position: "relative" }}
+            >
               <ReactPlayer
                 width="100%"
                 height="100%"
                 style={{ position: "absolute", top: 0, left: 0 }}
-                url={page?.link}
+                url={page.link}
               />
             </div>
-          </div>
-        )}
+          )}
+        </Layout.Container>
       </div>
-    </div>
+
+      <div className="bg-gray-800">
+        <Layout.Container>
+          <div className="flex space-y-6 flex-col sm:flex-row-reverse sm:space-y-0 justify-between">
+            <div className="flex flex-col space-y-4 sm:text-right mt-0">
+              <h4 className="text-sm leading-5 font-semibold tracking-wider text-gray-400 uppercase">
+                Du willst mehr wissen?
+              </h4>
+              <h4 className="text-sm leading-5 font-semibold tracking-wider text-gray-400 uppercase">
+                Oder einfach jemanden, der dir zuhört?
+              </h4>
+              <p className="text-sm leading-5 font-semibold text-gray-400">
+                Melde dich bei Valentin Damm!
+              </p>
+            </div>
+            <div className="h-24 sm:h-24">
+              <img src="/img/jcbslogo.png" className="h-full" alt="JCBS Logo" />
+            </div>
+          </div>
+        </Layout.Container>
+      </div>
+    </Layout>
   );
 }
 
