@@ -9,7 +9,6 @@ export async function getAllYears(): Promise<IWeek[][]> {
     path.resolve(process.cwd(), `${BASE_DIR}`)
   );
 
-  console.log(yearsPath);
   return await Promise.all(
     yearsPath.map(async (path) => {
       return await getAllWeeks(path);

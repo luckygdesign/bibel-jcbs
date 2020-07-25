@@ -5,6 +5,8 @@ import ReactPlayer from "react-player";
 import { Layout } from "components/Layout";
 import { getAllYears } from "lib/year-query";
 import { ParsedUrlQuery } from "querystring";
+import { Footer } from "components/Footer";
+import Link from "next/link";
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
@@ -42,6 +44,23 @@ function WeekPage(pageProps: { page: IWeek }) {
   const { page } = pageProps;
   return (
     <Layout>
+      <div
+        className="h-64 bg-center bg-cover"
+        style={{ backgroundImage: `url(${page.image})` }}
+      >
+        <Layout.Container>
+          <div>
+            <Link href="/[year]" as={`/${page?.year}`}>
+              <a className="inline-flex rounded-md shadow-sm">
+                <span className="inline-flex justify-center py-2 px-4 border border-white text-sm leading-5 font-medium rounded-md text-white hover:border-gray-200 hover:text-gray-200 focus:outline-none focus:border-gray-200 focus:shadow-outline-white transition duration-150 ease-in-out">
+                  Zur Übersicht
+                </span>
+              </a>
+            </Link>
+          </div>
+        </Layout.Container>
+      </div>
+
       <Layout.Container>
         <div className="text-lg max-w-prose mx-auto mb-6">
           <p className="text-base text-center leading-6 text-accent-600 font-semibold tracking-wide uppercase">
@@ -51,20 +70,29 @@ function WeekPage(pageProps: { page: IWeek }) {
             {page?.inputheading}
           </h1>
         </div>
-        <ParsedMD
+        <div className="my-12">
+          <ParsedMD
+            md={page?.versetext || ""}
+            className="prose text-2xl text-medium text-gray-600 mx-auto text-center"
+          />
+          <p className="text-base text-center leading-6 text-accent-600 mt-6">
+            {page?.versestelle}
+          </p>
+        </div>
+        {/*<ParsedMD
           md={page?.body || ""}
           className="prose prose-lg text-gray-500 mx-auto text-center"
-        />
+        />*/}
       </Layout.Container>
       <div className="bg-gray-200">
         <Layout.Container>
           <h3 className="mt-2 mb-8 text-xl text-center leading-8 font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
-            Challenge
+            {page?.challengeheading}
           </h3>
-          <p className="prose prose-lg text-gray-500 mx-auto text-center">
-            Schau dir das Video an und denke darüber nach, wozu Gott alles Leben
-            auf dieser Erde geschaffen hat und was er mit dir persönlich vorhat!
-          </p>
+          <ParsedMD
+            md={page?.challengebody || ""}
+            className="prose prose-lg text-gray-500 mx-auto text-center"
+          />
           {page?.video && (
             <div
               className="mt-9"
@@ -81,26 +109,7 @@ function WeekPage(pageProps: { page: IWeek }) {
         </Layout.Container>
       </div>
 
-      <div className="bg-gray-800">
-        <Layout.Container>
-          <div className="flex space-y-6 flex-col sm:flex-row-reverse sm:space-y-0 justify-between">
-            <div className="flex flex-col space-y-4 sm:text-right mt-0">
-              <h4 className="text-sm leading-5 font-semibold tracking-wider text-gray-400 uppercase">
-                Du willst mehr wissen?
-              </h4>
-              <h4 className="text-sm leading-5 font-semibold tracking-wider text-gray-400 uppercase">
-                Oder einfach jemanden, der dir zuhört?
-              </h4>
-              <p className="text-sm leading-5 font-semibold text-gray-400">
-                Melde dich bei Valentin Damm!
-              </p>
-            </div>
-            <div className="h-24 sm:h-24">
-              <img src="/img/jcbslogo.png" className="h-full" alt="JCBS Logo" />
-            </div>
-          </div>
-        </Layout.Container>
-      </div>
+      <Footer />
     </Layout>
   );
 }
