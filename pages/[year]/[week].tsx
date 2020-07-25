@@ -3,6 +3,8 @@ import { getWeekContent, IWeek, getAllWeeks } from "../../lib/week-query";
 import { ParsedMD } from "lib/parseMd";
 import ReactPlayer from "react-player";
 import { Layout } from "components/Layout";
+import { getAllYears } from "lib/year-query";
+import { ParsedUrlQuery } from "querystring";
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
@@ -16,18 +18,23 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  // Call an external API endpoint to get posts
-  const year1 = await getAllWeeks("1");
+  const years = await getAllYears();
 
   // Get the paths we want to pre-render based on posts
-  const paths = year1.map((week) => ({
-    params: { year: "1", week: week.woche },
-  }));
+  const paths: (
+    | string
+    | {
+        params: ParsedUrlQuery;
+      }
+  )[] = [];
+  years.map((year) =>
+    year.map((week) =>
+      paths.push({
+        params: { year: week.year, week: week.woche },
+      })
+    )
+  );
 
-  //const paths = [{ params: { year: "1", week: "1" } }];
-
-  // We'll pre-render only these paths at build time.
-  // { fallback: false } means other routes should 404.
   return { paths, fallback: false };
 };
 
