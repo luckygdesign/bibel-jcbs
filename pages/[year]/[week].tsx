@@ -64,7 +64,7 @@ function WeekPage(pageProps: { page: IWeek }) {
       <Layout.Container>
         <div className="text-lg max-w-prose mx-auto mb-6">
           <p className="text-base text-center leading-6 text-accent-600 font-semibold tracking-wide uppercase">
-            Jahr {page?.year} | Schulwoche {page?.woche}
+            {page?.year} | {page?.woche}
           </p>
           <h1 className="mt-2 mb-8 text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
             {page?.inputheading}

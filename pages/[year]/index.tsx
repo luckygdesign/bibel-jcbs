@@ -48,9 +48,8 @@ function YearPage(pageProps: { weeks: IWeek[]; year: string }) {
           </h1>
         </div>
         <p className="prose prose-lg text-gray-500 mx-auto text-center">
-          Schau dir das Video an und denke darüber nach, wozu Gott alles Leben
-          auf dieser Erde geschaffen hat und was er mit dir persönlich vorhat!
-          Naja... hier muss eigentlich noch ein anderer Text hin :).
+          Ich freue mich über dein Wort wie einer, der große Beute macht. -
+          Psalm 119,163
         </p>
       </Layout.Container>
       <div className="bg-gray-200">
@@ -67,6 +66,9 @@ function YearPage(pageProps: { weeks: IWeek[]; year: string }) {
 export default YearPage;
 
 const WochenUebersicht = ({ weeks }: { weeks: IWeek[] }) => {
+  const weeksSort = weeks.sort(
+    (a, b) => parseInt(a.woche || "0") - parseInt(b.woche || "0")
+  );
   return (
     <div className="mt-12 grid gap-5 max-w-lg mx-auto lg:grid-cols-3 lg:max-w-none">
       {weeks.map((week) => (
