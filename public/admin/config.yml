@@ -13,6 +13,7 @@ collections:
     create: true
     fields:
       - { label: "Schulwoche", name: "woche", widget: "string" }
+      - { label: "Überschrift", name: "inputheading", widget: "string" }
       - { label: "Bild Link", name: "image", widget: "string", required: false }
       - {
           label: "Video Link",
@@ -32,7 +33,21 @@ collections:
           widget: "markdown",
           required: false,
         }
-      - { label: "Input - Überschrift", name: "inputheading", widget: "string" }
-      - { label: "Input - Text", name: "body", widget: "markdown" }
-      - { label: "Vers - Text", name: "versetext", widget: "markdown" }
-      - { label: "Vers - Stellenangabe", name: "versestelle", widget: "string" }
+      - {
+          label: "Input - Text",
+          name: "body",
+          widget: "markdown",
+          required: false,
+        }
+      - {
+          label: "Vers - Text",
+          name: "versetext",
+          widget: "markdown",
+          required: false,
+        }
+      - {
+          label: "Vers - Stellenangabe",
+          name: "versestelle",
+          widget: "string",
+          required: false,
+        }
