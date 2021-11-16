@@ -52,7 +52,7 @@ function WeekPage(pageProps: { page: IWeek }) {
           <div>
             <Link href="/[year]" as={`/${page?.year}`}>
               <a className="inline-flex rounded-md shadow-sm">
-                <span className="inline-flex justify-center py-2 px-4 border border-white text-sm leading-5 font-medium rounded-md text-white hover:border-gray-200 hover:text-gray-200 focus:outline-none focus:border-gray-200 focus:shadow-outline-white transition duration-150 ease-in-out">
+                <span className="inline-flex justify-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out border border-white rounded-md hover:border-gray-200 hover:text-gray-200 focus:outline-none focus:border-gray-200 focus:shadow-outline-white">
                   Zur Übersicht
                 </span>
               </a>
@@ -62,36 +62,36 @@ function WeekPage(pageProps: { page: IWeek }) {
       </div>
 
       <Layout.Container>
-        <div className="text-lg max-w-prose mx-auto mb-6">
-          <p className="text-base text-center leading-6 text-accent-600 font-semibold tracking-wide uppercase">
+        <div className="mx-auto mb-6 text-lg max-w-prose">
+          <p className="text-base font-semibold leading-6 tracking-wide text-center uppercase text-accent-600">
             {page?.year} | {page?.woche}
           </p>
-          <h1 className="mt-2 mb-8 text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
+          <h1 className="mt-2 mb-8 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 sm:text-4xl sm:leading-10">
             {page?.inputheading}
           </h1>
         </div>
         <div className="my-12">
           <ParsedMD
             md={page?.versetext || ""}
-            className="prose text-2xl text-medium text-gray-600 mx-auto text-center"
+            className="mx-auto text-2xl prose text-center text-gray-600 text-medium"
           />
-          <p className="text-base text-center leading-6 text-accent-600 mt-6">
+          <p className="mt-6 text-base leading-6 text-center text-accent-600">
             {page?.versestelle}
           </p>
         </div>
-        {/*<ParsedMD
+        <ParsedMD
           md={page?.body || ""}
-          className="prose prose-lg text-gray-500 mx-auto text-center"
-        />*/}
+          className="mx-auto prose prose-lg text-center text-gray-500"
+        />
       </Layout.Container>
       <div className="bg-gray-200">
         <Layout.Container>
-          <h3 className="mt-2 mb-8 text-xl text-center leading-8 font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
+          <h3 className="mt-2 mb-8 text-xl font-bold leading-8 tracking-tight text-center text-gray-900 sm:text-4xl sm:leading-10">
             {page?.challengeheading}
           </h3>
           <ParsedMD
             md={page?.challengebody || ""}
-            className="prose prose-lg text-gray-500 mx-auto text-center"
+            className="mx-auto prose prose-lg text-center text-gray-500"
           />
           {page?.video && (
             <div
