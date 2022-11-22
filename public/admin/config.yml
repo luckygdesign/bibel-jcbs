@@ -97,3 +97,49 @@ collections:
           widget: "string",
           required: false,
         }
+  - name: "jahr3"
+    label: "Jahr 3"
+    identifier_field: "woche"
+    description: "Inhalte für Jahr 3"
+    folder: "content/3"
+    create: true
+    fields:
+      - { label: "Schulwoche", name: "woche", widget: "string" }
+      - { label: "Überschrift", name: "inputheading", widget: "string" }
+      - { label: "Bild Link", name: "image", widget: "string", required: false }
+      - {
+          label: "Video Link",
+          name: "video",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Challenge - Überschrift",
+          name: "challengeheading",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Challenge - Text",
+          name: "challengebody",
+          widget: "markdown",
+          required: false,
+        }
+      - {
+          label: "Input - Text",
+          name: "body",
+          widget: "markdown",
+          required: false,
+        }
+      - {
+          label: "Vers - Text",
+          name: "versetext",
+          widget: "markdown",
+          required: false,
+        }
+      - {
+          label: "Vers - Stellenangabe",
+          name: "versestelle",
+          widget: "string",
+          required: false,
+        }
